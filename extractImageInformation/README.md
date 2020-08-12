@@ -1,4 +1,4 @@
-# N3wFlowER
+# RoadRunner
 Generation of a new flower given some input images, user interface and using greedy's and genetics algorithms. Implemented using P5.js
 
 Execute the project:
@@ -10,3 +10,6 @@ Note:
 1) Use the developer tools in your browser to visualize the console output.
 2) All the images need to be allocated in the resources path with the pattern 'flower{nextNumber}.jpg'.
 3) CTRL + C in command prompt to stop the server
+
+
+R:\Ulises\OneDrive\OneDrive - Estudiantes ITCR\Cursos TEC\Primer Semestre 2020\Analisis\Proyecto 2\GeneticRoadRunner\extractImageInformation>python -m http.server

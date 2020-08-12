@@ -140,8 +140,6 @@ class LoopHandler {
 				imgs[ counter ].resize( CANVAS_WIDTH, CANVAS_HEIGHT );
 				roadRunnerGenerator.images.push( imgs[counter] );
 			}
-
-			console.log("Press space to pause the process");
 		}
 	}
 }

@@ -1,0 +1,83 @@
+
+// for clean code
+const 
+	X = 0,
+	Y = 1,
+
+	RANGE_MOTION = 23;
+
+// dimensions
+const 
+	CANVAS_WIDTH  = 1800,
+	CANVAS_HEIGHT = 904,
+
+	NEW_IMAGE_WIDTH  = 1800,
+	NEW_IMAGE_HEIGHT = 904;
+
+// drawing loop handler
+const
+	LOOP_VISUALIZING = 0,
+	LOOP_USER_INPUT  = 1,
+	LOOP_DRAWING     = 2;
+
+// user input
+const 
+	INPUT_DISTANCE_CENTER = 0,
+	INPUT_POINTS_BUTTON_TOP = 1,
+	INPUT_POINTS_ZONES = 2;
+
+// program constants
+const
+	IMAGE_AMOUNT  = 1,
+	IMAGE_INDEX = 0,
+	IMAGE_EXTENSION = '.jpg',
+	IMAGES_PATH = 'resources/',
+
+	ORIGINAL_IMAGES_PATH = 	'resources/',
+	DEFAULT_JSON_FILENAME = 'input.json',
+	WALLPAPER_PATH = 'resources/pistaDeCarrera.jpg';
+
+// default genetics values
+const
+	DEFAULT_POPULATION_AMOUNT = 50,
+	DEFAULT_NATURAL_SELECTION_AMOUNT = 10,
+	DEFAULT_FITNESS_WEAK_VALUE = 2,
+	DEFAULT_MUTATE_VALUE = 10,
+	DEFAULT_CROSS_VALUE = 10,
+	DEFAULT_TARGET_POPULATION_AMOUNT = 200,
+	DEFAULT_MUTATION_RATE = 0.2,
+	DEFAULT_ZONES_AMOUNT = 16,
+
+	CHROMOSOME_TYPES = {
+		SHAPE: 0,
+		COLOR: 1
+	},
+
+	MAX_BITS_AMOUNT = 16,
+	MAX_VALUE = 65536,
+
+	PETAL_ZONE = 0,
+	CENTER_ZONE = 1;
+
+// shape genetics
+const 
+	AMOUNT_POINTS_PER_DISTANCE = 2,
+	MIN_POINTS_AMOUNT_PER_SHAPE = 5,
+	MAX_ZONE_AMOUNT = 5,
+	MAX_POINTS_BUTTON_TOP = 2,
+	MAX_POINTS_ZONES = 25,
+	MAX_COLOR_ZONES = 3,
+	MAX_COLOR = 256,
+
+	MAX_PIXEL_DISTANCE = 3,
+	MAX_TONE_RANGE = 50,
+	RGB_SIZE = 3,
+	RADIUS_ZONE = 20,
+	RADIUS_POINT = 10;
+
+
+// memory values
+const 
+	BYTES_AMOUNT = 16,
+	INPUT_FILE_PATH = 'data/input.json',
+	TEST_IMAGES_AMOUNT = 1;
