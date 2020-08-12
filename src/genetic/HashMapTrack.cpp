@@ -1,5 +1,4 @@
 #include <unordered_map>
-#include <json.hpp>
 
 void readJsonInput(){
     std::ifstream file_input("data/inputParedArriba.json");
