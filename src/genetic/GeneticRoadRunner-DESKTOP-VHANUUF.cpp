@@ -108,7 +108,7 @@ class Individual{
             return newValue;
         }
     
-        friend 
+        friend class GeneticRoadRunner;
 }; 
 
 class GeneticRoadRunner{
