@@ -1,0 +1,11 @@
+#define X_INITIAL  0
+#define Y_INITIAL  328
+#define X  0
+#define Y  1
+#define CIRCULE_RANGE_ZONES  60
+#define SUM_FOR_CRASHIMG  100
+
+#define INITIAL_POPULATION  10
+#define NUMBER_GENERATION  20
+
+#define POCENTAGE_TO_ELIMINATE  0.45
