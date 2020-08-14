@@ -33,15 +33,17 @@ class GeneticRoadRunner{
         int currentGeneration = 0;
 
         while(currentGeneration < this->numberGeneations){  //REVISAR colocar el parametro de public, por ahora así.
+            cout<<"\n\nGeneracion: "<<currentGeneration+1<<endl;
             // cout<<"1"<<endl;
             fitness();
             // cout<<"2"<<endl;
             selectPopulation();
-            cout<<"Population despues de select: "<<population.size()<<endl;
+            // cout<<"Population despues de select: "<<population.size()<<endl;
             // cout<<"3"<<endl;
             fillPopulation();
             // cout<<"4"<<endl;
             currentGeneration ++;
+            
             
         }     
         cout<<"The program is finished."<<endl;   
@@ -52,8 +54,9 @@ class GeneticRoadRunner{
     void fillPopulation(){
         
         int newIndividuals =  initialPopulation - population.size();
-        cout<<"Se agregarán: "<<newIndividuals<<endl;
-        int zonesSize = population.front().listOfPoints.size();
+        
+        int zonesSize = population.front().listOfPoints.size(); //REVISAR tiene 11 y son 8.
+        // cout<<"zone.size: "<<zonesSize<<endl;
         using pointMutate = std::pair<int, int>;int newIndividualCounter = 0;
         while(newIndividualCounter < newIndividuals){   //REVISAR no se si es < o <= queda pendiente.
             int firstIndividual = newRandom(population.size());
@@ -68,7 +71,7 @@ class GeneticRoadRunner{
             using individualTemp = std::vector<pointZoneTemp>;
 
             individualTemp newListPoints;
-            for(int counterZones = 0; counterZones <= zonesSize; counterZones++){
+            for(int counterZones = 0; counterZones < zonesSize; counterZones++){
                 pointZoneTemp point;
                 pointZone pointX1 = individualFather.listOfPoints[counterZones];
                 pointZone pointY1 = individualFather.listOfPoints[counterZones];
@@ -91,12 +94,12 @@ class GeneticRoadRunner{
             float distance = 0;
             using pointZonePerDistane = std::pair<int, int>;int initialX = X_INITIAL;int initialY=Y_INITIAL;
             for(int counterListPoints = 0; counterListPoints < newListPoints.size();counterListPoints++){
-                
+                // cout<<"Size de newListPoints"<<newListPoints.size()<<endl;
                 pointZonePerDistane point2 = newListPoints[counterListPoints];int X2=point2.first;int Y2=point2.second;
-                distance += (distanceBetweenPointPerCrossover(initialX,initialY,X2,Y2));
+                distance += (distanceBetweenPointPerCrossover(initialX,initialY,X2,Y2)*PROM);
                 initialX=X2,initialY=Y2;
             }
-            cout<<"\nDISTANCE"<<distance<<endl;
+            // cout<<"\nDISTANCE"<<distance<<endl;
             // std::vector<pair<int,int>::iterator individualIterator;
             // for(individualIterator = this->newLis.begin(); individualIterator != this->population.end(); individualIterator++){
             newIndividual.circleRadius = circleRange;newIndividual.distance = distance;newIndividual.fitness=0;
@@ -143,6 +146,9 @@ class GeneticRoadRunner{
             population.erase(population.begin()); 
             counterPerEliminate ++;
         }
+        Individual bestIndividual = population.back();
+        cout<<"Best Individual in this Generation: \n"<<"\tDistacia total, al llegar a la meta: "<<bestIndividual.distance<<
+        "\n\tFitness del mejor Individuo: "<<bestIndividual.fitness<<"\n\tTamaño del diametro de cada zona del Individuo: "<<bestIndividual.circleRadius<<endl;
     }
 
     int newRandomForMutate(int min, int max){
@@ -168,7 +174,7 @@ class GeneticRoadRunner{
                     //population -> [ [{x,y},{x,y}], [  {x,y}] ]
     void fitness(){
         std::vector<Individual>::iterator individualIterator;
-        cout<<"population size: "<<population.size()<<endl;
+        // cout<<"population size: "<<population.size()<<endl;
         for (individualIterator = this->population.begin(); individualIterator != this->population.end(); individualIterator++){
             float fitnessScore = 0.0;
             std::vector<Individual>::iterator sumOfDiferences;
@@ -179,7 +185,7 @@ class GeneticRoadRunner{
             }
             
         individualIterator->fitness = fitnessScore;
-        cout<<"Fitness: "<<individualIterator->fitness<<endl;
+        // cout<<"Fitness: "<<individualIterator->fitness<<endl;
         }       
     }
 
@@ -244,11 +250,11 @@ class GeneticRoadRunner{
     // }
 
     float distanceBetweenPointPerCrossover(int x1,int y1, int x2, int y2){
-        cout<<x1<<"\t"<<x2<<"\t"<<y1<<"\t"<<y2<<endl;
+        // cout<<x1<<"\t"<<x2<<"\t"<<y1<<"\t"<<y2<<endl;
         float auxNumber = ((x2 - x1)*(x2 - x1 ) + (y2 - y1)*(y2 - y1));if(auxNumber<0){auxNumber=0;}
         float distance = sqrt(auxNumber);
         // float distance = sqrt((5 - 4)*(5 - 4 ) + (12 - 8)*(12 - 8));
-        cout<<"distancia: "<<distance<<endl;
+        // cout<<"distancia: "<<distance<<endl;
         return (distance / 2);
         }
     float slopeFuntionCrossover(int X1, int Y1,int X2, int Y2){    // Pendiente de la función.
